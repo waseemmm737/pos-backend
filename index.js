@@ -37,8 +37,8 @@ app.route('/example').get(function (req, res) {
 sql.connect(config, function (err) {
     if (err) return console.log(err);
     console.log("Database Connected ✓");
-    var request = new sql.Request();
-    require('./Routes')(app, request);
+    require('./Routes')(app, sql);
+    require('./CreateTables')(sql);
     console.log("Routes Available ✓");
 });
 
