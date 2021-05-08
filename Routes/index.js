@@ -4,7 +4,7 @@ module.exports = function (app, sql) {
     });
 
     app.route("/user/add").post(function (req, res) {
-        let { email, name, password, username, isAdmin=false } = req.body
+        let { email, name, password, username, isAdmin=0 } = req.body
         let query = "INSERT INTO WebUsers (email,name,password,username,isAdmin) VALUES(" +
             " '" + email + "'" +
             ", '" + name + "'" +
