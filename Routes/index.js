@@ -54,7 +54,7 @@ module.exports = function (app, sql) {
     });
 
     app.route("/user/delete/:email").delete(function (req, res) {
-       let query = "Delete from WebUsers where email='" + req.query.email + "'"
+       let query = "Delete from WebUsers where email='" + req.params.email + "'"
         new sql.Request().query(query, (err, result) => {
             if (err) return res.json(err);
             res.json(result.recordset[0]);
