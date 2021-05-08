@@ -4,12 +4,13 @@ module.exports = function (app, sql) {
     });
 
     app.route("/user/add").post(function (req, res) {
-        let { email, name, password, username } = req.body
+        let { email, name, password, username, isAdmin } = req.body
         let query = "INSERT INTO WebUsers (email,name,password,username,isAdmin) VALUES(" +
             " '" + email + "'" +
             ", '" + name + "'" +
             ", '" + password + "'" +
-            ", '" + username + "',0)"
+            ", '" + username + "'" +
+            ","+ isAdmin + ")"
         new sql.Request().query(query, (err, result) => {
             if (err) return res.status(404).json("Not Found");
             res.status(200).json(`Success > ${query}`);
