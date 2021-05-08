@@ -7,10 +7,10 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 var config = {
-    user: 'muhammadnazim',
-    password: '2kRxAWxBgr6FJMF',
-    server: 'pos-server-nazim.database.windows.net',
-    database: 'POS',
+    user: process.env.user,
+    password: process.env.password,
+    server: process.env.server,
+    database: process.env.database,
     port: 1433,
     options: {
         encrypt: true,
