@@ -11,7 +11,11 @@ var config = {
     password: '2kRxAWxBgr6FJMF',
     server: 'pos-server-nazim.database.windows.net',
     database: 'POS',
-    port: 1433
+    port: 1433,
+    options: {
+        encrypt: true,
+        enableArithAbort: true
+    }
 };
 function availableRoutes() {
     return app._router.stack
