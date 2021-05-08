@@ -38,7 +38,6 @@ sql.connect(config, function (err) {
     if (err) return console.log(err);
     console.log("Database Connected ✓");
     require('./Routes')(app, sql);
-    require('./CreateTables')(sql);
     console.log("Routes Available ✓");
 });
 
