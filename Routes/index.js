@@ -18,7 +18,7 @@ module.exports = function (app, sql) {
     });
 
     app.route("/user/get").get(function (req, res) {
-        new sql.Request().query('select * from WebUsers', (err, result) => {
+        new sql.Request().query('select * from WebUsers where isAdmin=0', (err, result) => {
             if (err) return res.json(err);
             res.json(result.recordsets[0]);
         })
