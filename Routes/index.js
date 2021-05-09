@@ -31,6 +31,13 @@ module.exports = function (app, sql) {
         })
     });
 
+    app.route("/purchase/get").get(function (req, res) {
+        new sql.Request().query('select * from Purchases', (err, result) => {
+            if (err) return res.json(err);
+            res.json(result.recordsets[0]);
+        })
+    });
+
     app.route("/product/get").get(function (req, res) {
         new sql.Request().query('select * from Products', (err, result) => {
             if (err) return res.json(err);
